@@ -1,22 +1,39 @@
-CREATE EXTENSION IF NOT EXISTS unaccent;
-CREATE EXTENSION IF NOT EXISTS pg_trgm;
+-- =====================================================================
+-- ADMIN MODULE - DATABASE CREATION SCRIPT (PostgreSQL 13+)
+-- =====================================================================
 
+-- ---------------------------------------------------------------------
+-- 0a. EXTENSIONS & VIETNAMESE TEXT SUPPORT
+-- ---------------------------------------------------------------------
+CREATE EXTENSION IF NOT EXISTS unaccent;   -- accent-insensitive search ("nguyen" matches "Nguyễn")
+CREATE EXTENSION IF NOT EXISTS pg_trgm;    -- fast ILIKE '%keyword%' searches
+
+-- unaccent() is not IMMUTABLE, so it cannot be used in an index directly.
+-- This wrapper makes it indexable.
 CREATE OR REPLACE FUNCTION f_unaccent(text) RETURNS text
 LANGUAGE sql IMMUTABLE PARALLEL SAFE STRICT AS
 $$ SELECT public.unaccent('public.unaccent', $1) $$;
 
+-- Vietnamese collation for correct sorting of names (requires PostgreSQL built with ICU, the default on most installs)
 CREATE COLLATION IF NOT EXISTS vi_icu (provider = icu, locale = 'vi');
 
+-- ---------------------------------------------------------------------
+-- 0b. TYPES
+-- ---------------------------------------------------------------------
 CREATE TYPE gender_type       AS ENUM ('male', 'female', 'other');
 CREATE TYPE account_status    AS ENUM ('active', 'locked');
 CREATE TYPE group_member_role AS ENUM ('member', 'admin');
 CREATE TYPE spam_status       AS ENUM ('pending', 'resolved', 'dismissed');
 
+-- ---------------------------------------------------------------------
+-- 1. USERS
+-- ---------------------------------------------------------------------
 CREATE TABLE users (
     id             BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     username       VARCHAR(50)  NOT NULL,
     password_hash  VARCHAR(255) NOT NULL,          -- store a hash (bcrypt/argon2), NEVER the raw password
     full_name      VARCHAR(100) NOT NULL,
+    -- Given name = last word of full_name (Vietnamese convention); auto-generated, for sorting by given name
     first_name     VARCHAR(100) GENERATED ALWAYS AS (substring(trim(full_name) FROM '[^ ]+$')) STORED,
     address        VARCHAR(255),
     date_of_birth  DATE,
@@ -32,12 +49,14 @@ CREATE TABLE users (
     CONSTRAINT chk_users_dob CHECK (date_of_birth IS NULL OR date_of_birth <= CURRENT_DATE)
 );
 
+-- Case-insensitive unique indexes, applied only to users that are not soft-deleted
 CREATE UNIQUE INDEX uq_users_username ON users (lower(username)) WHERE deleted_at IS NULL;
 CREATE UNIQUE INDEX uq_users_email    ON users (lower(email))    WHERE deleted_at IS NULL;
 
 CREATE INDEX idx_users_full_name  ON users (lower(full_name));
 CREATE INDEX idx_users_first_name ON users (first_name COLLATE "vi_icu");
 
+-- Accent-insensitive search indexes (use the same expression in queries, see sample query 1a)
 CREATE INDEX idx_users_fullname_search ON users USING gin (f_unaccent(lower(full_name)) gin_trgm_ops);
 CREATE INDEX idx_users_username_search ON users USING gin (f_unaccent(lower(username))  gin_trgm_ops);
 CREATE INDEX idx_users_status     ON users (status);
