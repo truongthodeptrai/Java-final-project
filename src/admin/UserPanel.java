@@ -1,0 +1,298 @@
+package admin;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+
+public class UserPanel extends JPanel {
+
+    private final Color BACKGROUND_COLOR =
+        new Color(245, 247, 250);
+
+    private final Color TEXT_COLOR =
+        new Color(30, 45, 65);
+
+    private final Color BLUE_COLOR =
+        new Color(45, 105, 190);
+
+    public UserPanel() {
+
+        setLayout(new BorderLayout(0, 25));
+        setBackground(BACKGROUND_COLOR);
+
+        setBorder(
+            BorderFactory.createEmptyBorder(30, 35, 30, 35)
+        );
+
+        // Page heading
+        add(createHeading(), BorderLayout.NORTH);
+
+        // Main content
+        JPanel mainContent = new JPanel(
+            new BorderLayout(0, 20)
+        );
+
+        mainContent.setBackground(BACKGROUND_COLOR);
+
+        mainContent.add(
+            createToolbar(),
+            BorderLayout.NORTH
+        );
+
+        mainContent.add(
+            createUserTable(),
+            BorderLayout.CENTER
+        );
+
+        add(mainContent, BorderLayout.CENTER);
+    }
+
+    // Create page heading
+    private JPanel createHeading() {
+
+        JPanel panel = new JPanel();
+
+        panel.setLayout(
+            new BoxLayout(panel, BoxLayout.Y_AXIS)
+        );
+
+        panel.setBackground(BACKGROUND_COLOR);
+
+        JLabel title = new JLabel("User Management");
+
+        title.setFont(
+            new Font("Arial", Font.BOLD, 28)
+        );
+
+        title.setForeground(TEXT_COLOR);
+
+        JLabel description = new JLabel(
+            "Manage user accounts and personal information"
+        );
+
+        description.setFont(
+            new Font("Arial", Font.PLAIN, 14)
+        );
+
+        description.setForeground(Color.GRAY);
+
+        panel.add(title);
+
+        panel.add(Box.createVerticalStrut(8));
+
+        panel.add(description);
+
+        return panel;
+    }
+
+    // Create search and filter toolbar
+    private JPanel createToolbar() {
+
+        JPanel panel = new JPanel(
+            new FlowLayout(FlowLayout.LEFT, 12, 10)
+        );
+
+        panel.setBackground(Color.WHITE);
+
+        panel.setBorder(
+            BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(
+                    new Color(225, 230, 238)
+                ),
+                BorderFactory.createEmptyBorder(5, 10, 5, 10)
+            )
+        );
+
+        // Search field
+        // Search field
+        JTextField searchField = new JTextField(22);
+
+        searchField.setFont(
+            new Font("Arial", Font.PLAIN, 14)
+        );
+
+        searchField.setToolTipText(
+            "Search by username or full name"
+        );
+
+        // Placeholder text
+        searchField.setText("Search...");
+        searchField.setForeground(Color.GRAY);
+
+        searchField.addFocusListener(
+            new java.awt.event.FocusAdapter() {
+
+                @Override
+                public void focusGained(
+                    java.awt.event.FocusEvent e
+                ) {
+
+                    if (searchField.getText().equals("Search...")) {
+                        searchField.setText("");
+                        searchField.setForeground(Color.BLACK);
+                    }
+                }
+
+                @Override
+                public void focusLost(
+                    java.awt.event.FocusEvent e
+                ) {
+
+                if (searchField.getText().isEmpty()) {
+                    searchField.setText("Search...");
+                        searchField.setForeground(Color.GRAY);
+                    }
+                }
+            }
+        );
+
+        searchField.setFont(
+            new Font("Arial", Font.PLAIN, 14)
+        );
+
+        searchField.setToolTipText(
+            "Search by username or full name"
+        );
+
+        // Status filter
+        String[] statuses = {
+            "All Status",
+            "Active",
+            "Locked"
+        };
+
+        JComboBox<String> statusFilter =
+            new JComboBox<>(statuses);
+
+        statusFilter.setFont(
+            new Font("Arial", Font.PLAIN, 13)
+        );
+
+        // Add user button
+        JButton addButton = new JButton("+ Add User");
+
+        addButton.setFont(
+            new Font("Arial", Font.BOLD, 13)
+        );
+
+        addButton.setForeground(Color.WHITE);
+
+        addButton.setBackground(BLUE_COLOR);
+
+        addButton.setFocusPainted(false);
+
+        addButton.setBorderPainted(false);
+
+        panel.add(searchField);
+
+        panel.add(statusFilter);
+
+        panel.add(addButton);
+
+        return panel;
+    }
+
+    // Create user table
+    private JPanel createUserTable() {
+
+        JPanel panel = new JPanel(
+            new BorderLayout(0, 15)
+        );
+
+        panel.setBackground(Color.WHITE);
+
+        panel.setBorder(
+            BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(
+                    new Color(225, 230, 238)
+                ),
+                BorderFactory.createEmptyBorder(
+                    20, 20, 20, 20
+                )
+            )
+        );
+
+        JLabel title = new JLabel("User Accounts");
+
+        title.setFont(
+            new Font("Arial", Font.BOLD, 18)
+        );
+
+        title.setForeground(TEXT_COLOR);
+
+        panel.add(title, BorderLayout.NORTH);
+
+        // Table columns
+        String[] columns = {
+            "Username",
+            "Full Name",
+            "Email",
+            "Gender",
+            "Date of Birth",
+            "Status"
+        };
+
+        // Sample user data
+        Object[][] data = {
+            {"john123", "John Smith", "john@email.com",
+                "Male", "12/05/2002", "Active"},
+
+            {"mary456", "Mary Johnson", "mary@email.com",
+                "Female", "23/08/2001", "Active"},
+
+            {"alex789", "Alex Brown", "alex@email.com",
+                "Male", "15/03/2003", "Locked"},
+
+            {"david101", "David Wilson", "david@email.com",
+                "Male", "09/11/2002", "Active"},
+
+            {"sarah202", "Sarah Davis", "sarah@email.com",
+                "Female", "30/01/2004", "Active"}
+        };
+
+        DefaultTableModel model = new DefaultTableModel(
+            data, columns
+        ) {
+
+            @Override
+            public boolean isCellEditable(
+                int row, int column
+            ) {
+                return false;
+            }
+        };
+
+        JTable table = new JTable(model);
+        table.setFillsViewportHeight(true);
+
+        table.setRowHeight(40);
+
+        table.setFont(
+            new Font("Arial", Font.PLAIN, 13)
+        );
+
+        table.getTableHeader().setFont(
+            new Font("Arial", Font.BOLD, 13)
+        );
+
+        table.getTableHeader().setBackground(
+            new Color(240, 243, 248)
+        );
+
+        table.setSelectionBackground(
+            new Color(225, 235, 250)
+        );
+
+        table.setShowVerticalLines(false);
+
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        scrollPane.setBorder(
+            BorderFactory.createEmptyBorder()
+        );
+
+        panel.add(scrollPane, BorderLayout.CENTER);
+
+        return panel;
+    }
+}

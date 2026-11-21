@@ -1,4 +1,3 @@
-
 package admin;
 
 import javax.swing.*;
@@ -87,99 +86,61 @@ public class MainFrame extends JFrame {
         return header;
     }
 
+    
     private void addPages() {
 
-        addPage("dashboard", "Dashboard",
-            "Welcome to ChatAdmin Administration System");
-
-        addPage("users", "User Management",
-            "Manage user accounts and personal information");
-
-        addPage("login", "Login History",
-            "View user login history");
-
-        addPage("friends", "Friend Statistics",
-            "View users and their number of friends");
-
-        addPage("groups", "Chat Groups",
-            "Manage chat groups and their members");
-
-        addPage("spam", "Spam Reports",
-            "Review spam reports and manage reported accounts");
-
-        addPage("registrations", "New Registrations",
-            "View newly registered users");
-
-        addPage("registration_chart", "Registration Statistics",
-            "View monthly user registrations");
-
-        addPage("activity", "User Activity",
-            "View user activity statistics");
-
-        addPage("activity_chart", "Activity Statistics",
-            "View monthly active user statistics");
-    }
-
-    private void addPage(
-        String key,
-        String title,
-        String description
-    ) {
-
-        JPanel page = new JPanel(new BorderLayout());
-
-        page.setBackground(BACKGROUND_COLOR);
-
-        page.setBorder(
-            BorderFactory.createEmptyBorder(30, 35, 30, 35)
+        // Dashboard screens
+        contentPanel.add(
+        new DashboardPanel(),
+        "dashboard"
         );
 
-        JPanel heading = new JPanel();
-        heading.setLayout(new BoxLayout(heading, BoxLayout.Y_AXIS));
-        heading.setBackground(BACKGROUND_COLOR);
-
-        JLabel pageTitle = new JLabel(title);
-
-        pageTitle.setFont(
-            new Font("Arial", Font.BOLD, 26)
+        
+        contentPanel.add(
+        new UserPanel(),
+        "users"
         );
 
-        pageTitle.setForeground(new Color(30, 45, 65));
-
-        JLabel pageDescription = new JLabel(description);
-
-        pageDescription.setFont(
-            new Font("Arial", Font.PLAIN, 14)
+        contentPanel.add(
+        new LoginHistoryPanel(),
+        "login"
         );
 
-        pageDescription.setForeground(Color.GRAY);
-
-        heading.add(pageTitle);
-        heading.add(Box.createVerticalStrut(8));
-        heading.add(pageDescription);
-
-        page.add(heading, BorderLayout.NORTH);
-
-        // Placeholder content
-        JPanel placeholder = new JPanel(new GridBagLayout());
-
-        placeholder.setBackground(Color.WHITE);
-
-        JLabel message = new JLabel(
-            "This page is under development."
+        contentPanel.add(
+        new FriendStatisticsPanel(),
+        "friends"
         );
 
-        message.setFont(
-            new Font("Arial", Font.PLAIN, 16)
+        contentPanel.add(
+        new GroupPanel(),
+        "groups"
         );
 
-        message.setForeground(Color.GRAY);
+        contentPanel.add(
+        new SpamReportPanel(),
+        "spam"
+        );
 
-        placeholder.add(message);
+        contentPanel.add(
+        new NewUserPanel(),
+        "registrations"
+        );
 
-        page.add(placeholder, BorderLayout.CENTER);
+        contentPanel.add(
+        new RegistrationChartPanel(),
+        "registration_chart"
+        );
 
-        contentPanel.add(page, key);
+        contentPanel.add(
+        new ActivityPanel(),
+        "activity"
+        );
+
+        contentPanel.add(
+        new ActivityChartPanel(),
+        "activity_chart"
+        );
+        
     }
 
     private void showPage(String page) {

@@ -1,4 +1,3 @@
-
 package admin;
 
 import javax.swing.*;
@@ -243,6 +242,7 @@ public class DashboardPanel extends JPanel {
         };
 
         JTable table = new JTable(model);
+        table.setFillsViewportHeight(true);
 
         table.setRowHeight(40);
 
