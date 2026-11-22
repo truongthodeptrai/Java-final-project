@@ -66,7 +66,7 @@ public class DashboardPanel extends JPanel {
 
         panel.setBackground(BACKGROUND_COLOR);
 
-        JLabel title = new JLabel("Dashboard");
+        JLabel title = new JLabel("Bảng điều khiển");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 28)
@@ -75,7 +75,7 @@ public class DashboardPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "Overview of your ChatAdmin system"
+            "Tổng quan hệ thống ChatAdmin"
         );
 
         description.setFont(
@@ -107,19 +107,19 @@ public class DashboardPanel extends JPanel {
         );
 
         panel.add(createStatisticCard(
-            "Total Users", "2,450", "Registered accounts"
+            "Tổng số người dùng", "2,450", "Tài khoản đã đăng ký"
         ));
 
         panel.add(createStatisticCard(
-            "New Registrations", "128", "This month"
+            "Đăng ký mới", "128", "Tháng này"
         ));
 
         panel.add(createStatisticCard(
-            "Chat Groups", "86", "Total groups"
+            "Nhóm trò chuyện", "86", "Tổng số nhóm"
         ));
 
         panel.add(createStatisticCard(
-            "Active Users", "1,820", "This month"
+            "Người dùng hoạt động", "1,820", "Tháng này"
         ));
 
         return panel;
@@ -206,7 +206,7 @@ public class DashboardPanel extends JPanel {
             )
         );
 
-        JLabel title = new JLabel("Recent Login Activity");
+        JLabel title = new JLabel("Hoạt động đăng nhập gần đây");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 18)
@@ -218,9 +218,9 @@ public class DashboardPanel extends JPanel {
 
         // Các cột của bảng
         String[] columns = {
-            "Username",
-            "Full Name",
-            "Login Time"
+            "Tên đăng nhập",
+            "Họ và tên",
+            "Thời gian đăng nhập"
         };
 
         // Dữ liệu bảng mẫu

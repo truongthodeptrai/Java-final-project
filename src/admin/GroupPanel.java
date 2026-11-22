@@ -56,7 +56,7 @@ public class GroupPanel extends JPanel {
 
         panel.setBackground(BACKGROUND_COLOR);
 
-        JLabel title = new JLabel("Chat Groups");
+        JLabel title = new JLabel("Nhóm trò chuyện");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 28)
@@ -65,7 +65,7 @@ public class GroupPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "Manage chat groups and their members"
+            "Quản lý nhóm trò chuyện và thành viên"
         );
 
         description.setFont(
@@ -108,7 +108,7 @@ public class GroupPanel extends JPanel {
             new Font("Arial", Font.PLAIN, 14)
         );
 
-        searchField.setText("Search...");
+        searchField.setText("Tìm kiếm...");
         searchField.setForeground(Color.GRAY);
 
         searchField.addFocusListener(
@@ -119,7 +119,7 @@ public class GroupPanel extends JPanel {
                     java.awt.event.FocusEvent e
                 ) {
 
-                    if (searchField.getText().equals("Search...")) {
+                    if (searchField.getText().equals("Tìm kiếm...")) {
                         searchField.setText("");
                         searchField.setForeground(Color.BLACK);
                     }
@@ -131,7 +131,7 @@ public class GroupPanel extends JPanel {
                 ) {
 
                     if (searchField.getText().isEmpty()) {
-                        searchField.setText("Search...");
+                        searchField.setText("Tìm kiếm...");
                         searchField.setForeground(Color.GRAY);
                     }
                 }
@@ -140,8 +140,8 @@ public class GroupPanel extends JPanel {
 
         // Các tùy chọn sắp xếp
         String[] sortOptions = {
-            "Name",
-            "Created Date"
+            "Tên",
+            "Ngày tạo"
         };
 
         JComboBox<String> sortFilter =
@@ -153,7 +153,7 @@ public class GroupPanel extends JPanel {
 
         panel.add(searchField);
 
-        panel.add(new JLabel("Sort by:"));
+        panel.add(new JLabel("Sắp xếp theo:"));
 
         panel.add(sortFilter);
 
@@ -180,7 +180,7 @@ public class GroupPanel extends JPanel {
             )
         );
 
-        JLabel title = new JLabel("Group List");
+        JLabel title = new JLabel("Danh sách nhóm");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 18)
@@ -192,21 +192,21 @@ public class GroupPanel extends JPanel {
 
         // Các cột của bảng
         String[] columns = {
-            "Group Name",
-            "Created Date",
-            "Members",
-            "Administrators"
+            "Tên nhóm",
+            "Ngày tạo",
+            "Thành viên",
+            "Quản trị viên"
         };
 
         // Dữ liệu nhóm chat mẫu
         Object[][] data = {
-            {"Gaming Community", "15/10/2026", 25, 3},
-            {"University CS", "12/10/2026", 18, 2},
-            {"Anime Discussion", "08/10/2026", 32, 4},
-            {"Project Team", "01/10/2026", 12, 2},
-            {"Friends Forever", "25/09/2026", 15, 2},
-            {"Study Group", "20/09/2026", 10, 1},
-            {"Movie Lovers", "15/09/2026", 28, 3}
+            {"Cộng đồng trò chơi", "15/10/2026", 25, 3},
+            {"Nhóm Tin học đại học", "12/10/2026", 18, 2},
+            {"Thảo luận Anime", "08/10/2026", 32, 4},
+            {"Nhóm dự án", "01/10/2026", 12, 2},
+            {"Bạn bè mãi mãi", "25/09/2026", 15, 2},
+            {"Nhóm học tập", "20/09/2026", 10, 1},
+            {"Người yêu phim", "15/09/2026", 28, 3}
         };
 
         DefaultTableModel model = new DefaultTableModel(

@@ -59,7 +59,7 @@ public class SpamReportPanel extends JPanel {
 
         panel.setBackground(BACKGROUND_COLOR);
 
-        JLabel title = new JLabel("Spam Reports");
+        JLabel title = new JLabel("Báo cáo spam");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 28)
@@ -68,7 +68,7 @@ public class SpamReportPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "Review spam reports and manage reported accounts"
+            "Xem xét báo cáo spam và quản lý tài khoản bị báo cáo"
         );
 
         description.setFont(
@@ -111,7 +111,7 @@ public class SpamReportPanel extends JPanel {
             new Font("Arial", Font.PLAIN, 13)
         );
 
-        searchField.setText("Search...");
+        searchField.setText("Tìm kiếm...");
         searchField.setForeground(Color.GRAY);
 
         searchField.addFocusListener(
@@ -122,7 +122,7 @@ public class SpamReportPanel extends JPanel {
                     java.awt.event.FocusEvent e
                 ) {
 
-                    if (searchField.getText().equals("Search...")) {
+                    if (searchField.getText().equals("Tìm kiếm...")) {
                         searchField.setText("");
                         searchField.setForeground(Color.BLACK);
                     }
@@ -134,7 +134,7 @@ public class SpamReportPanel extends JPanel {
                 ) {
 
                     if (searchField.getText().isEmpty()) {
-                        searchField.setText("Search...");
+                        searchField.setText("Tìm kiếm...");
                         searchField.setForeground(Color.GRAY);
                     }
                 }
@@ -143,10 +143,10 @@ public class SpamReportPanel extends JPanel {
 
         // Bộ lọc ngày báo cáo
         String[] dateOptions = {
-            "All Dates",
-            "Today",
-            "Last 7 Days",
-            "Last 30 Days"
+            "Tất cả thời gian",
+            "Hôm nay",
+            "7 ngày qua",
+            "30 ngày qua"
         };
 
         JComboBox<String> dateFilter =
@@ -158,8 +158,8 @@ public class SpamReportPanel extends JPanel {
 
         // Các tùy chọn sắp xếp
         String[] sortOptions = {
-            "Report Time",
-            "Username"
+            "Thời gian báo cáo",
+            "Tên đăng nhập"
         };
 
         JComboBox<String> sortFilter =
@@ -171,7 +171,7 @@ public class SpamReportPanel extends JPanel {
 
         // Nút khóa tài khoản
         JButton lockButton = new JButton(
-            "Lock Selected Account"
+            "Khóa tài khoản được chọn"
         );
 
         lockButton.setFont(
@@ -188,11 +188,11 @@ public class SpamReportPanel extends JPanel {
 
         panel.add(searchField);
 
-        panel.add(new JLabel("Report Date:"));
+        panel.add(new JLabel("Ngày báo cáo:"));
 
         panel.add(dateFilter);
 
-        panel.add(new JLabel("Sort by:"));
+        panel.add(new JLabel("Sắp xếp theo:"));
 
         panel.add(sortFilter);
 
@@ -221,7 +221,7 @@ public class SpamReportPanel extends JPanel {
             )
         );
 
-        JLabel title = new JLabel("Report List");
+        JLabel title = new JLabel("Danh sách báo cáo");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 18)
@@ -233,30 +233,30 @@ public class SpamReportPanel extends JPanel {
 
         // Các cột của bảng
         String[] columns = {
-            "Reported User",
-            "Reporter",
-            "Reason",
-            "Report Time"
+            "Người dùng bị báo cáo",
+            "Người báo cáo",
+            "Lý do",
+            "Thời gian báo cáo"
         };
 
         // Dữ liệu báo cáo mẫu
         Object[][] data = {
-            {"spam123", "john123", "Spam messages",
+            {"spam123", "john123", "Tin nhắn rác",
                 "21/11/2026 08:30"},
 
-            {"user456", "mary456", "Harassment",
+            {"user456", "mary456", "Quấy rối",
                 "20/11/2026 15:20"},
 
-            {"bot789", "alex789", "Suspicious links",
+            {"bot789", "alex789", "Liên kết đáng ngờ",
                 "19/11/2026 12:45"},
 
-            {"fake101", "david101", "Fake account",
+            {"fake101", "david101", "Tài khoản giả mạo",
                 "18/11/2026 19:10"},
 
-            {"spam202", "sarah202", "Spam messages",
+            {"spam202", "sarah202", "Tin nhắn rác",
                 "17/11/2026 10:30"},
 
-            {"user303", "peter303", "Inappropriate content",
+            {"user303", "peter303", "Nội dung không phù hợp",
                 "16/11/2026 14:15"}
         };
 

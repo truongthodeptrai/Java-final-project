@@ -56,7 +56,7 @@ public class FriendStatisticsPanel extends JPanel {
 
         panel.setBackground(BACKGROUND_COLOR);
 
-        JLabel title = new JLabel("Friend Statistics");
+        JLabel title = new JLabel("Thống kê bạn bè");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 28)
@@ -65,7 +65,7 @@ public class FriendStatisticsPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "View users and their friendship statistics"
+            "Xem người dùng và thống kê quan hệ bạn bè"
         );
 
         description.setFont(
@@ -109,7 +109,7 @@ public class FriendStatisticsPanel extends JPanel {
         );
 
         // Văn bản gợi ý trong ô nhập liệu
-        searchField.setText("Search...");
+        searchField.setText("Tìm kiếm...");
         searchField.setForeground(Color.GRAY);
 
         searchField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -117,7 +117,7 @@ public class FriendStatisticsPanel extends JPanel {
         @Override
         public void focusGained(java.awt.event.FocusEvent e) {
 
-            if (searchField.getText().equals("Search...")) {
+            if (searchField.getText().equals("Tìm kiếm...")) {
                searchField.setText("");
                searchField.setForeground(Color.BLACK);
             }
@@ -127,7 +127,7 @@ public class FriendStatisticsPanel extends JPanel {
         public void focusLost(java.awt.event.FocusEvent e) {
 
             if (searchField.getText().isEmpty()) {
-                searchField.setText("Search...");
+                searchField.setText("Tìm kiếm...");
                 searchField.setForeground(Color.GRAY);
             }
         }
@@ -137,7 +137,7 @@ public class FriendStatisticsPanel extends JPanel {
         );
 
         searchField.setToolTipText(
-            "Search by username or full name"
+            "Tìm theo tên đăng nhập hoặc họ tên"
         );
 
         // Điều kiện so sánh
@@ -157,8 +157,8 @@ public class FriendStatisticsPanel extends JPanel {
 
         // Tùy chọn sắp xếp
         String[] sortOptions = {
-            "Name",
-            "Created Date"
+            "Tên",
+            "Ngày tạo"
         };
 
         JComboBox<String> sortFilter =
@@ -167,13 +167,13 @@ public class FriendStatisticsPanel extends JPanel {
         // Thêm các thành phần vào thanh công cụ
         panel.add(searchField);
 
-        panel.add(new JLabel("Direct Friends:"));
+        panel.add(new JLabel("Bạn bè trực tiếp:"));
 
         panel.add(conditionFilter);
 
         panel.add(friendCountField);
 
-        panel.add(new JLabel("Sort by:"));
+        panel.add(new JLabel("Sắp xếp theo:"));
 
         panel.add(sortFilter);
 
@@ -201,7 +201,7 @@ public class FriendStatisticsPanel extends JPanel {
         );
 
         JLabel title = new JLabel(
-            "User Friendship Statistics"
+            "Thống kê quan hệ bạn bè"
         );
 
         title.setFont(
@@ -214,10 +214,10 @@ public class FriendStatisticsPanel extends JPanel {
 
         // Các cột của bảng
         String[] columns = {
-            "Username",
-            "Full Name",
-            "Direct Friends",
-            "Friends of Friends"
+            "Tên đăng nhập",
+            "Họ và tên",
+            "Bạn bè trực tiếp",
+            "Bạn của bạn bè"
         };
 
         // Dữ liệu mẫu

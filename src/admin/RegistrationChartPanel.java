@@ -15,9 +15,9 @@ public class RegistrationChartPanel extends JPanel {
         new Color(45, 105, 190);
 
     private final String[] months = {
-        "Jan", "Feb", "Mar", "Apr",
-        "May", "Jun", "Jul", "Aug",
-        "Sep", "Oct", "Nov", "Dec"
+        "Thg 1", "Thg 2", "Thg 3", "Thg 4",
+        "Thg 5", "Thg 6", "Thg 7", "Thg 8",
+        "Thg 9", "Thg 10", "Thg 11", "Thg 12"
     };
 
     private final int[] registrations = {
@@ -57,7 +57,7 @@ public class RegistrationChartPanel extends JPanel {
         );
 
         JLabel chartTitle = new JLabel(
-            "Monthly New Registrations - 2026"
+            "Số lượt đăng ký mới theo tháng - 2026"
         );
 
         chartTitle.setFont(
@@ -94,7 +94,7 @@ public class RegistrationChartPanel extends JPanel {
         panel.setBackground(BACKGROUND_COLOR);
 
         JLabel title = new JLabel(
-            "Registration Statistics"
+            "Thống kê đăng ký"
         );
 
         title.setFont(
@@ -104,7 +104,7 @@ public class RegistrationChartPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "View monthly user registration statistics"
+            "Xem thống kê đăng ký người dùng theo tháng"
         );
 
         description.setFont(
@@ -237,13 +237,13 @@ public class RegistrationChartPanel extends JPanel {
             g2.setColor(TEXT_COLOR);
 
             g2.drawString(
-                "Number of Users",
+                "Số lượng người dùng",
                 10, 20
             );
 
             // Tiêu đề trục X
             g2.drawString(
-                "Month (2026)",
+                "Tháng (2026)",
                 width / 2 - 40,
                 height - 5
             );

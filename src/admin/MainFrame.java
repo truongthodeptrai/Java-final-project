@@ -13,7 +13,7 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
 
-        setTitle("ChatAdmin - Administration System");
+        setTitle("ChatAdmin - Hệ thống quản trị");
 
         setSize(1400, 850);
         setMinimumSize(new Dimension(1100, 700));
@@ -64,7 +64,7 @@ public class MainFrame extends JFrame {
             BorderFactory.createEmptyBorder(20, 30, 20, 30)
         );
 
-        JLabel title = new JLabel("Administration Panel");
+        JLabel title = new JLabel("Trang quản trị");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 20)
@@ -72,18 +72,10 @@ public class MainFrame extends JFrame {
 
         title.setForeground(new Color(30, 45, 65));
 
-        JLabel admin = new JLabel("Admin Account");
-
-        admin.setFont(
-            new Font("Arial", Font.PLAIN, 14)
-        );
-
-        admin.setForeground(new Color(90, 100, 115));
-
         header.add(title, BorderLayout.WEST);
-        header.add(admin, BorderLayout.EAST);
 
         return header;
+
     }
 
     

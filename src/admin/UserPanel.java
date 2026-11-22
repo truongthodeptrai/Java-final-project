@@ -58,7 +58,7 @@ public class UserPanel extends JPanel {
 
         panel.setBackground(BACKGROUND_COLOR);
 
-        JLabel title = new JLabel("User Management");
+        JLabel title = new JLabel("Quản lý người dùng");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 28)
@@ -67,7 +67,7 @@ public class UserPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "Manage user accounts and personal information"
+            "Quản lý tài khoản và thông tin cá nhân của người dùng"
         );
 
         description.setFont(
@@ -112,11 +112,11 @@ public class UserPanel extends JPanel {
         );
 
         searchField.setToolTipText(
-            "Search by username or full name"
+            "Tìm theo tên đăng nhập hoặc họ tên"
         );
 
         // Văn bản gợi ý trong ô nhập liệu
-        searchField.setText("Search...");
+        searchField.setText("Tìm kiếm...");
         searchField.setForeground(Color.GRAY);
 
         searchField.addFocusListener(
@@ -127,7 +127,7 @@ public class UserPanel extends JPanel {
                     java.awt.event.FocusEvent e
                 ) {
 
-                    if (searchField.getText().equals("Search...")) {
+                    if (searchField.getText().equals("Tìm kiếm...")) {
                         searchField.setText("");
                         searchField.setForeground(Color.BLACK);
                     }
@@ -139,7 +139,7 @@ public class UserPanel extends JPanel {
                 ) {
 
                 if (searchField.getText().isEmpty()) {
-                    searchField.setText("Search...");
+                    searchField.setText("Tìm kiếm...");
                         searchField.setForeground(Color.GRAY);
                     }
                 }
@@ -151,14 +151,14 @@ public class UserPanel extends JPanel {
         );
 
         searchField.setToolTipText(
-            "Search by username or full name"
+            "Tìm theo tên đăng nhập hoặc họ tên"
         );
 
         // Bộ lọc trạng thái
         String[] statuses = {
-            "All Status",
-            "Active",
-            "Locked"
+            "Tất cả trạng thái",
+            "Đang hoạt động",
+            "Đã khóa"
         };
 
         JComboBox<String> statusFilter =
@@ -169,7 +169,7 @@ public class UserPanel extends JPanel {
         );
 
         // Nút thêm người dùng
-        JButton addButton = new JButton("+ Add User");
+        JButton addButton = new JButton("+ Thêm người dùng");
 
         addButton.setFont(
             new Font("Arial", Font.BOLD, 13)
@@ -212,7 +212,7 @@ public class UserPanel extends JPanel {
             )
         );
 
-        JLabel title = new JLabel("User Accounts");
+        JLabel title = new JLabel("Tài khoản người dùng");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 18)
@@ -224,30 +224,30 @@ public class UserPanel extends JPanel {
 
         // Các cột của bảng
         String[] columns = {
-            "Username",
-            "Full Name",
+            "Tên đăng nhập",
+            "Họ và tên",
             "Email",
-            "Gender",
-            "Date of Birth",
-            "Status"
+            "Giới tính",
+            "Ngày sinh",
+            "Trạng thái"
         };
 
         // Dữ liệu người dùng mẫu
         Object[][] data = {
             {"john123", "John Smith", "john@email.com",
-                "Male", "12/05/2002", "Active"},
+                "Nam", "12/05/2002", "Đang hoạt động"},
 
             {"mary456", "Mary Johnson", "mary@email.com",
-                "Female", "23/08/2001", "Active"},
+                "Nữ", "23/08/2001", "Đang hoạt động"},
 
             {"alex789", "Alex Brown", "alex@email.com",
-                "Male", "15/03/2003", "Locked"},
+                "Nam", "15/03/2003", "Đã khóa"},
 
             {"david101", "David Wilson", "david@email.com",
-                "Male", "09/11/2002", "Active"},
+                "Nam", "09/11/2002", "Đang hoạt động"},
 
             {"sarah202", "Sarah Davis", "sarah@email.com",
-                "Female", "30/01/2004", "Active"}
+                "Nữ", "30/01/2004", "Đang hoạt động"}
         };
 
         DefaultTableModel model = new DefaultTableModel(

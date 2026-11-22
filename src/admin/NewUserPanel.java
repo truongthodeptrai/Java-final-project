@@ -57,7 +57,7 @@ public class NewUserPanel extends JPanel {
 
         panel.setBackground(BACKGROUND_COLOR);
 
-        JLabel title = new JLabel("New Registrations");
+        JLabel title = new JLabel("Đăng ký mới");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 28)
@@ -66,7 +66,7 @@ public class NewUserPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "View newly registered users within a selected period"
+            "Xem người dùng mới đăng ký trong khoảng thời gian đã chọn"
         );
 
         description.setFont(
@@ -137,7 +137,7 @@ public class NewUserPanel extends JPanel {
             new Font("Arial", Font.PLAIN, 13)
         );
 
-        searchField.setText("Search...");
+        searchField.setText("Tìm kiếm...");
         searchField.setForeground(Color.GRAY);
 
         searchField.addFocusListener(
@@ -148,7 +148,7 @@ public class NewUserPanel extends JPanel {
                     java.awt.event.FocusEvent e
                 ) {
 
-                    if (searchField.getText().equals("Search...")) {
+                    if (searchField.getText().equals("Tìm kiếm...")) {
                         searchField.setText("");
                         searchField.setForeground(Color.BLACK);
                     }
@@ -160,7 +160,7 @@ public class NewUserPanel extends JPanel {
                 ) {
 
                     if (searchField.getText().isEmpty()) {
-                        searchField.setText("Search...");
+                        searchField.setText("Tìm kiếm...");
                         searchField.setForeground(Color.GRAY);
                     }
                 }
@@ -169,8 +169,8 @@ public class NewUserPanel extends JPanel {
 
         // Các tùy chọn sắp xếp
         String[] sortOptions = {
-            "Name",
-            "Registration Date"
+            "Tên",
+            "Ngày đăng ký"
         };
 
         JComboBox<String> sortFilter =
@@ -181,15 +181,15 @@ public class NewUserPanel extends JPanel {
         );
 
         // Thêm các thành phần vào thanh công cụ
-        panel.add(new JLabel("From:"));
+        panel.add(new JLabel("Từ ngày:"));
         panel.add(fromDate);
 
-        panel.add(new JLabel("To:"));
+        panel.add(new JLabel("Đến ngày:"));
         panel.add(toDate);
 
         panel.add(searchField);
 
-        panel.add(new JLabel("Sort by:"));
+        panel.add(new JLabel("Sắp xếp theo:"));
         panel.add(sortFilter);
 
         return panel;
@@ -215,7 +215,7 @@ public class NewUserPanel extends JPanel {
             )
         );
 
-        JLabel title = new JLabel("Registered Users");
+        JLabel title = new JLabel("Người dùng đã đăng ký");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 18)
@@ -227,10 +227,10 @@ public class NewUserPanel extends JPanel {
 
         // Các cột của bảng
         String[] columns = {
-            "Username",
-            "Full Name",
+            "Tên đăng nhập",
+            "Họ và tên",
             "Email",
-            "Registration Date"
+            "Ngày đăng ký"
         };
 
         // Dữ liệu đăng ký mẫu

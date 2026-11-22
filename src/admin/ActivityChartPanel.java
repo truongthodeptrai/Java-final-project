@@ -15,9 +15,9 @@ public class ActivityChartPanel extends JPanel {
         new Color(45, 105, 190);
 
     private final String[] months = {
-        "Jan", "Feb", "Mar", "Apr",
-        "May", "Jun", "Jul", "Aug",
-        "Sep", "Oct", "Nov", "Dec"
+        "Thg 1", "Thg 2", "Thg 3", "Thg 4",
+        "Thg 5", "Thg 6", "Thg 7", "Thg 8",
+        "Thg 9", "Thg 10", "Thg 11", "Thg 12"
     };
 
     // Số lượng người dùng hoạt động mẫu theo từng tháng
@@ -58,7 +58,7 @@ public class ActivityChartPanel extends JPanel {
         );
 
         JLabel chartTitle = new JLabel(
-            "Monthly Active Users - 2026"
+            "Người dùng hoạt động theo tháng - 2026"
         );
 
         chartTitle.setFont(
@@ -95,7 +95,7 @@ public class ActivityChartPanel extends JPanel {
         panel.setBackground(BACKGROUND_COLOR);
 
         JLabel title = new JLabel(
-            "Activity Statistics"
+            "Thống kê hoạt động"
         );
 
         title.setFont(
@@ -105,7 +105,7 @@ public class ActivityChartPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "View monthly active user statistics"
+            "Xem thống kê người dùng hoạt động theo tháng"
         );
 
         description.setFont(
@@ -246,13 +246,13 @@ public class ActivityChartPanel extends JPanel {
             g2.setColor(TEXT_COLOR);
 
             g2.drawString(
-                "Active Users",
+                "Người dùng hoạt động",
                 10,
                 20
             );
 
             g2.drawString(
-                "Month (2026)",
+                "Tháng (2026)",
                 width / 2 - 40,
                 height - 5
             );

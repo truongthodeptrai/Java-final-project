@@ -40,7 +40,7 @@ public class LoginHistoryPanel extends JPanel {
 
         panel.setBackground(BACKGROUND_COLOR);
 
-        JLabel title = new JLabel("Login History");
+        JLabel title = new JLabel("Lịch sử đăng nhập");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 28)
@@ -49,7 +49,7 @@ public class LoginHistoryPanel extends JPanel {
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "View the login history of registered users"
+            "Xem lịch sử đăng nhập của người dùng đã đăng ký"
         );
 
         description.setFont(
@@ -87,7 +87,7 @@ public class LoginHistoryPanel extends JPanel {
             )
         );
 
-        JLabel title = new JLabel("Login Records");
+        JLabel title = new JLabel("Danh sách đăng nhập");
 
         title.setFont(
             new Font("Arial", Font.BOLD, 18)
@@ -99,9 +99,9 @@ public class LoginHistoryPanel extends JPanel {
 
         // Các cột của bảng
         String[] columns = {
-            "Login Time",
-            "Username",
-            "Full Name"
+            "Thời gian đăng nhập",
+            "Tên đăng nhập",
+            "Họ và tên"
         };
 
         // Dữ liệu lịch sử đăng nhập mẫu

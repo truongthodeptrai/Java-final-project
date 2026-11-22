@@ -42,13 +42,13 @@ public class ActivityPanel extends JPanel {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(BACKGROUND_COLOR);
 
-        JLabel title = new JLabel("User Activity");
+        JLabel title = new JLabel("Hoạt động người dùng");
 
         title.setFont(new Font("Arial", Font.BOLD, 28));
         title.setForeground(TEXT_COLOR);
 
         JLabel description = new JLabel(
-            "Monitor user activity within a selected date range"
+            "Theo dõi hoạt động người dùng trong khoảng thời gian đã chọn"
         );
 
         description.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -74,7 +74,7 @@ public class ActivityPanel extends JPanel {
         );
 
         // Ngày bắt đầu
-        JLabel fromLabel = new JLabel("From:");
+        JLabel fromLabel = new JLabel("Từ ngày:");
 
         JSpinner fromDate = new JSpinner(
             new SpinnerDateModel(new Date(), null, null,
@@ -86,7 +86,7 @@ public class ActivityPanel extends JPanel {
         );
 
         // Ngày kết thúc
-        JLabel toLabel = new JLabel("To:");
+        JLabel toLabel = new JLabel("Đến ngày:");
 
         JSpinner toDate = new JSpinner(
             new SpinnerDateModel(new Date(), null, null,
@@ -100,7 +100,7 @@ public class ActivityPanel extends JPanel {
         // Ô tìm kiếm
         JTextField searchField = new JTextField(15);
 
-        searchField.setText("Search...");
+        searchField.setText("Tìm kiếm...");
 
         searchField.setForeground(Color.GRAY);
 
@@ -110,7 +110,7 @@ public class ActivityPanel extends JPanel {
                 public void focusGained(
                     java.awt.event.FocusEvent e
                 ) {
-                    if (searchField.getText().equals("Search...")) {
+                    if (searchField.getText().equals("Tìm kiếm...")) {
                         searchField.setText("");
                         searchField.setForeground(Color.BLACK);
                     }
@@ -120,7 +120,7 @@ public class ActivityPanel extends JPanel {
                     java.awt.event.FocusEvent e
                 ) {
                     if (searchField.getText().isEmpty()) {
-                        searchField.setText("Search...");
+                        searchField.setText("Tìm kiếm...");
                         searchField.setForeground(Color.GRAY);
                     }
                 }
@@ -136,7 +136,7 @@ public class ActivityPanel extends JPanel {
 
         // Tùy chọn sắp xếp
         JComboBox<String> sort = new JComboBox<>(
-            new String[]{"Name", "Created Date"}
+            new String[]{"Tên", "Ngày tạo"}
         );
 
         toolbar.add(fromLabel);
@@ -149,7 +149,7 @@ public class ActivityPanel extends JPanel {
         toolbar.add(comparison);
         toolbar.add(activityCount);
 
-        toolbar.add(new JLabel("Sort by:"));
+        toolbar.add(new JLabel("Sắp xếp theo:"));
         toolbar.add(sort);
 
         return toolbar;
@@ -158,11 +158,11 @@ public class ActivityPanel extends JPanel {
     private JScrollPane createActivityTable() {
 
         String[] columns = {
-            "Username",
-            "Full Name",
-            "App Opens",
-            "People Chatted With",
-            "Groups Chatted In"
+            "Tên đăng nhập",
+            "Họ và tên",
+            "Số lần mở ứng dụng",
+            "Số người đã trò chuyện",
+            "Số nhóm đã trò chuyện"
         };
 
         Object[][] data = {

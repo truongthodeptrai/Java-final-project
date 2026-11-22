@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.function.Consumer;
 
+
+
 public class Sidebar extends JPanel {
 
     private final Color SIDEBAR_COLOR = new Color(23, 37, 61);
@@ -12,47 +14,66 @@ public class Sidebar extends JPanel {
 
     private JButton selectedButton;
 
+    private static class UserIcon implements Icon {
+
+        public int getIconWidth() {
+            return 18;
+        }
+
+        public int getIconHeight() {
+            return 18;
+        }
+
+        public void paintIcon(
+            Component c, Graphics g, int x, int y
+        ) {
+            g.setColor(Color.LIGHT_GRAY);
+
+            g.fillOval(x + 6, y, 7, 7);
+            g.fillRoundRect(x + 2, y + 9, 15, 9, 8, 8);
+        }
+    }
+
     public Sidebar(Consumer<String> navigation) {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(SIDEBAR_COLOR);
         setPreferredSize(new Dimension(240, 0));
 
-        // Tên ứng dụng
-        JLabel logo = new JLabel("  CHATADMIN");
-        logo.setFont(new Font("Arial", Font.BOLD, 22));
-        logo.setForeground(TEXT_COLOR);
-        logo.setBorder(
-            BorderFactory.createEmptyBorder(25, 10, 30, 10)
-        );
-
-        add(logo);
-
         // Khu vực menu
-        addMenuItem("Dashboard", "dashboard", navigation);
+        addMenuItem("Bảng điều khiển", "dashboard", navigation);
 
-        addSectionTitle("USER MANAGEMENT");
+        addSectionTitle("QUẢN LÝ NGƯỜI DÙNG");
 
-        addMenuItem("Users", "users", navigation);
-        addMenuItem("Login History", "login", navigation);
-        addMenuItem("Friend Statistics", "friends", navigation);
+        addMenuItem("Người dùng", "users", navigation);
+        addMenuItem("Lịch sử đăng nhập", "login", navigation);
+        addMenuItem("Thống kê bạn bè", "friends", navigation);
 
-        addSectionTitle("GROUP MANAGEMENT");
+        addSectionTitle("QUẢN LÝ NHÓM");
 
-        addMenuItem("Chat Groups", "groups", navigation);
-        addMenuItem("Spam Reports", "spam", navigation);
+        addMenuItem("Nhóm trò chuyện", "groups", navigation);
+        addMenuItem("Báo cáo spam", "spam", navigation);
 
-        addSectionTitle("STATISTICS");
+        addSectionTitle("THỐNG KÊ");
 
-        addMenuItem("New Registrations", "registrations", navigation);
-        addMenuItem("Registration Chart", "registration_chart", navigation);
-        addMenuItem("User Activity", "activity", navigation);
-        addMenuItem("Activity Chart", "activity_chart", navigation);
+        addMenuItem("Đăng ký mới", "registrations", navigation);
+        addMenuItem("Biểu đồ đăng ký mới", "registration_chart", navigation);
+        addMenuItem("Hoạt động người dùng", "activity", navigation);
+        addMenuItem("Biểu đồ hoạt động", "activity_chart", navigation);
 
         add(Box.createVerticalGlue());
 
-        JLabel adminLabel = new JLabel("  Administrator");
+        JLabel adminLabel = new JLabel(
+            "  \uD83D\uDC64  Tài khoản quản trị"
+        );
+
         adminLabel.setForeground(Color.LIGHT_GRAY);
+        adminLabel.setFont(new Font("Arial", Font.BOLD, 13));
+
+        // Thêm icon hình người
+        adminLabel.setIcon(new UserIcon());
+        adminLabel.setIconTextGap(10);
+
         adminLabel.setBorder(
             BorderFactory.createEmptyBorder(15, 10, 20, 10)
         );
