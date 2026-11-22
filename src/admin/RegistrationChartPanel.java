@@ -35,10 +35,10 @@ public class RegistrationChartPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Page heading
+        // Tiêu đề trang
         add(createHeading(), BorderLayout.NORTH);
 
-        // Chart container
+        // Khung chứa biểu đồ
         JPanel chartContainer = new JPanel(
             new BorderLayout()
         );
@@ -71,7 +71,7 @@ public class RegistrationChartPanel extends JPanel {
             BorderLayout.NORTH
         );
 
-        // Custom bar chart
+        // Biểu đồ cột tự vẽ
         JPanel chart = new BarChart();
 
         chartContainer.add(
@@ -82,7 +82,7 @@ public class RegistrationChartPanel extends JPanel {
         add(chartContainer, BorderLayout.CENTER);
     }
 
-    // Create page heading
+    // Tạo phần tiêu đề trang
     private JPanel createHeading() {
 
         JPanel panel = new JPanel();
@@ -122,7 +122,7 @@ public class RegistrationChartPanel extends JPanel {
         return panel;
     }
 
-    // Custom bar chart
+    // Biểu đồ cột tự vẽ
     private class BarChart extends JPanel {
 
         public BarChart() {
@@ -157,7 +157,7 @@ public class RegistrationChartPanel extends JPanel {
             int chartWidth = width - left - right;
             int chartHeight = height - top - bottom;
 
-            // Draw Y-axis labels and horizontal grid lines
+            // Vẽ nhãn trục Y và các đường lưới ngang
             g2.setFont(new Font("Arial", Font.PLAIN, 12));
 
             for (int i = 0; i <= 5; i++) {
@@ -182,12 +182,12 @@ public class RegistrationChartPanel extends JPanel {
                 );
             }
 
-            // Calculate bar width and spacing
+            // Tính chiều rộng và khoảng cách giữa các cột
             int barWidth = chartWidth / 18;
 
             int spacing = chartWidth / 12;
 
-            // Draw bars
+            // Vẽ các cột biểu đồ
             for (int i = 0; i < registrations.length; i++) {
 
                 int barHeight =
@@ -198,7 +198,7 @@ public class RegistrationChartPanel extends JPanel {
 
                 int y = top + chartHeight - barHeight;
 
-                // Bar
+                // Cột biểu đồ
                 g2.setColor(BAR_COLOR);
 
                 g2.fillRoundRect(
@@ -207,7 +207,7 @@ public class RegistrationChartPanel extends JPanel {
                     8, 8
                 );
 
-                // Registration count
+                // Số lượng đăng ký
                 g2.setColor(TEXT_COLOR);
 
                 String value =
@@ -220,7 +220,7 @@ public class RegistrationChartPanel extends JPanel {
                     y - 8
                 );
 
-                // Month label
+                // Nhãn tháng
                 g2.setColor(Color.GRAY);
 
                 String month = months[i];
@@ -233,7 +233,7 @@ public class RegistrationChartPanel extends JPanel {
                 );
             }
 
-            // Y-axis title
+            // Tiêu đề trục Y
             g2.setColor(TEXT_COLOR);
 
             g2.drawString(
@@ -241,7 +241,7 @@ public class RegistrationChartPanel extends JPanel {
                 10, 20
             );
 
-            // X-axis title
+            // Tiêu đề trục X
             g2.drawString(
                 "Month (2026)",
                 width / 2 - 40,

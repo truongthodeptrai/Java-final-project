@@ -22,10 +22,10 @@ public class FriendStatisticsPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Page heading
+        // Tiêu đề trang
         add(createHeading(), BorderLayout.NORTH);
 
-        // Main content
+        // Nội dung chính
         JPanel mainContent = new JPanel(
             new BorderLayout(0, 20)
         );
@@ -45,7 +45,7 @@ public class FriendStatisticsPanel extends JPanel {
         add(mainContent, BorderLayout.CENTER);
     }
 
-    // Create page heading
+    // Tạo phần tiêu đề trang
     private JPanel createHeading() {
 
         JPanel panel = new JPanel();
@@ -83,7 +83,7 @@ public class FriendStatisticsPanel extends JPanel {
         return panel;
     }
 
-    // Create search, filter and sorting toolbar
+    // Tạo thanh công cụ tìm kiếm, lọc và sắp xếp
     private JPanel createToolbar() {
 
         JPanel panel = new JPanel(
@@ -101,14 +101,14 @@ public class FriendStatisticsPanel extends JPanel {
             )
         );
 
-        // Search field
+        // Ô tìm kiếm
         JTextField searchField = new JTextField(18);
 
         searchField.setFont(
             new Font("Arial", Font.PLAIN, 13)
         );
 
-        // Placeholder text
+        // Văn bản gợi ý trong ô nhập liệu
         searchField.setText("Search...");
         searchField.setForeground(Color.GRAY);
 
@@ -140,7 +140,7 @@ public class FriendStatisticsPanel extends JPanel {
             "Search by username or full name"
         );
 
-        // Comparison condition
+        // Điều kiện so sánh
         String[] conditions = {
             "=", "<", ">"
         };
@@ -148,14 +148,14 @@ public class FriendStatisticsPanel extends JPanel {
         JComboBox<String> conditionFilter =
             new JComboBox<>(conditions);
 
-        // Friend count input
+        // Ô nhập số lượng bạn bè
         JTextField friendCountField = new JTextField(6);
 
         friendCountField.setToolTipText(
             "Enter number of direct friends"
         );
 
-        // Sort options
+        // Tùy chọn sắp xếp
         String[] sortOptions = {
             "Name",
             "Created Date"
@@ -164,7 +164,7 @@ public class FriendStatisticsPanel extends JPanel {
         JComboBox<String> sortFilter =
             new JComboBox<>(sortOptions);
 
-        // Add components
+        // Thêm các thành phần vào thanh công cụ
         panel.add(searchField);
 
         panel.add(new JLabel("Direct Friends:"));
@@ -180,7 +180,7 @@ public class FriendStatisticsPanel extends JPanel {
         return panel;
     }
 
-    // Create friendship statistics table
+    // Tạo bảng thống kê bạn bè
     private JPanel createFriendTable() {
 
         JPanel panel = new JPanel(
@@ -212,7 +212,7 @@ public class FriendStatisticsPanel extends JPanel {
 
         panel.add(title, BorderLayout.NORTH);
 
-        // Table columns
+        // Các cột của bảng
         String[] columns = {
             "Username",
             "Full Name",
@@ -220,7 +220,7 @@ public class FriendStatisticsPanel extends JPanel {
             "Friends of Friends"
         };
 
-        // Sample data
+        // Dữ liệu mẫu
         Object[][] data = {
             {"john123", "John Smith", 25, 120},
             {"mary456", "Mary Johnson", 18, 95},

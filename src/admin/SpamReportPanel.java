@@ -25,10 +25,10 @@ public class SpamReportPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Page heading
+        // Tiêu đề trang
         add(createHeading(), BorderLayout.NORTH);
 
-        // Main content
+        // Nội dung chính
         JPanel mainContent = new JPanel(
             new BorderLayout(0, 20)
         );
@@ -48,7 +48,7 @@ public class SpamReportPanel extends JPanel {
         add(mainContent, BorderLayout.CENTER);
     }
 
-    // Create page heading
+    // Tạo phần tiêu đề trang
     private JPanel createHeading() {
 
         JPanel panel = new JPanel();
@@ -86,7 +86,7 @@ public class SpamReportPanel extends JPanel {
         return panel;
     }
 
-    // Create search, filter and sorting toolbar
+    // Tạo thanh công cụ tìm kiếm, lọc và sắp xếp
     private JPanel createToolbar() {
 
         JPanel panel = new JPanel(
@@ -104,7 +104,7 @@ public class SpamReportPanel extends JPanel {
             )
         );
 
-        // Search field
+        // Ô tìm kiếm
         JTextField searchField = new JTextField(18);
 
         searchField.setFont(
@@ -141,7 +141,7 @@ public class SpamReportPanel extends JPanel {
             }
         );
 
-        // Report date filter
+        // Bộ lọc ngày báo cáo
         String[] dateOptions = {
             "All Dates",
             "Today",
@@ -156,7 +156,7 @@ public class SpamReportPanel extends JPanel {
             new Font("Arial", Font.PLAIN, 13)
         );
 
-        // Sorting options
+        // Các tùy chọn sắp xếp
         String[] sortOptions = {
             "Report Time",
             "Username"
@@ -169,7 +169,7 @@ public class SpamReportPanel extends JPanel {
             new Font("Arial", Font.PLAIN, 13)
         );
 
-        // Lock account button
+        // Nút khóa tài khoản
         JButton lockButton = new JButton(
             "Lock Selected Account"
         );
@@ -201,7 +201,7 @@ public class SpamReportPanel extends JPanel {
         return panel;
     }
 
-    // Create spam report table
+    // Tạo bảng báo cáo spam
     private JPanel createReportTable() {
 
         JPanel panel = new JPanel(
@@ -231,7 +231,7 @@ public class SpamReportPanel extends JPanel {
 
         panel.add(title, BorderLayout.NORTH);
 
-        // Table columns
+        // Các cột của bảng
         String[] columns = {
             "Reported User",
             "Reporter",
@@ -239,7 +239,7 @@ public class SpamReportPanel extends JPanel {
             "Report Time"
         };
 
-        // Sample report data
+        // Dữ liệu báo cáo mẫu
         Object[][] data = {
             {"spam123", "john123", "Spam messages",
                 "21/11/2026 08:30"},

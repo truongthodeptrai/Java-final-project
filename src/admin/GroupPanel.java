@@ -22,10 +22,10 @@ public class GroupPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Page heading
+        // Tiêu đề trang
         add(createHeading(), BorderLayout.NORTH);
 
-        // Main content
+        // Nội dung chính
         JPanel mainContent = new JPanel(
             new BorderLayout(0, 20)
         );
@@ -45,7 +45,7 @@ public class GroupPanel extends JPanel {
         add(mainContent, BorderLayout.CENTER);
     }
 
-    // Create page heading
+    // Tạo phần tiêu đề trang
     private JPanel createHeading() {
 
         JPanel panel = new JPanel();
@@ -83,7 +83,7 @@ public class GroupPanel extends JPanel {
         return panel;
     }
 
-    // Create search and sorting toolbar
+    // Tạo thanh công cụ tìm kiếm và sắp xếp
     private JPanel createToolbar() {
 
         JPanel panel = new JPanel(
@@ -101,7 +101,7 @@ public class GroupPanel extends JPanel {
             )
         );
 
-        // Search field
+        // Ô tìm kiếm
         JTextField searchField = new JTextField(22);
 
         searchField.setFont(
@@ -138,7 +138,7 @@ public class GroupPanel extends JPanel {
             }
         );
 
-        // Sorting options
+        // Các tùy chọn sắp xếp
         String[] sortOptions = {
             "Name",
             "Created Date"
@@ -160,7 +160,7 @@ public class GroupPanel extends JPanel {
         return panel;
     }
 
-    // Create chat group table
+    // Tạo bảng nhóm chat
     private JPanel createGroupTable() {
 
         JPanel panel = new JPanel(
@@ -190,7 +190,7 @@ public class GroupPanel extends JPanel {
 
         panel.add(title, BorderLayout.NORTH);
 
-        // Table columns
+        // Các cột của bảng
         String[] columns = {
             "Group Name",
             "Created Date",
@@ -198,7 +198,7 @@ public class GroupPanel extends JPanel {
             "Administrators"
         };
 
-        // Sample group data
+        // Dữ liệu nhóm chat mẫu
         Object[][] data = {
             {"Gaming Community", "15/10/2026", 25, 3},
             {"University CS", "12/10/2026", 18, 2},

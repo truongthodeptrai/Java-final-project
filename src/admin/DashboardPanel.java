@@ -26,12 +26,12 @@ public class DashboardPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Dashboard heading
+        // Tiêu đề trang tổng quan
         JPanel heading = createHeading();
 
         add(heading, BorderLayout.NORTH);
 
-        // Dashboard main content
+        // Nội dung chính của trang tổng quan
         JPanel mainContent = new JPanel();
 
         mainContent.setLayout(
@@ -40,14 +40,14 @@ public class DashboardPanel extends JPanel {
 
         mainContent.setBackground(BACKGROUND_COLOR);
 
-        // Statistic cards
+        // Các thẻ thống kê
         JPanel statistics = createStatistics();
 
         mainContent.add(statistics);
 
         mainContent.add(Box.createVerticalStrut(30));
 
-        // Recent login table
+        // Bảng lịch sử đăng nhập gần đây
         JPanel loginSection = createRecentLogin();
 
         mainContent.add(loginSection);
@@ -55,7 +55,7 @@ public class DashboardPanel extends JPanel {
         add(mainContent, BorderLayout.CENTER);
     }
 
-    // Create dashboard heading
+    // Tạo phần tiêu đề trang tổng quan
     private JPanel createHeading() {
 
         JPanel panel = new JPanel();
@@ -93,7 +93,7 @@ public class DashboardPanel extends JPanel {
         return panel;
     }
 
-    // Create statistic cards
+    // Tạo các thẻ thống kê
     private JPanel createStatistics() {
 
         JPanel panel = new JPanel(
@@ -125,7 +125,7 @@ public class DashboardPanel extends JPanel {
         return panel;
     }
 
-    // Create one statistic card
+    // Tạo một thẻ thống kê
     private JPanel createStatisticCard(
         String title,
         String value,
@@ -188,7 +188,7 @@ public class DashboardPanel extends JPanel {
         return card;
     }
 
-    // Create recent login section
+    // Tạo khu vực lịch sử đăng nhập gần đây
     private JPanel createRecentLogin() {
 
         JPanel panel = new JPanel(new BorderLayout(0, 15));
@@ -216,14 +216,14 @@ public class DashboardPanel extends JPanel {
 
         panel.add(title, BorderLayout.NORTH);
 
-        // Table columns
+        // Các cột của bảng
         String[] columns = {
             "Username",
             "Full Name",
             "Login Time"
         };
 
-        // Sample table data
+        // Dữ liệu bảng mẫu
         Object[][] data = {
             {"john123", "John Smith", "20:30"},
             {"mary456", "Mary Johnson", "20:15"},

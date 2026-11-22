@@ -20,7 +20,7 @@ public class ActivityChartPanel extends JPanel {
         "Sep", "Oct", "Nov", "Dec"
     };
 
-    // Sample number of active users for each month
+    // Số lượng người dùng hoạt động mẫu theo từng tháng
     private final int[] activeUsers = {
         850, 920, 1050, 980,
         1200, 1350, 1280, 1450,
@@ -39,7 +39,7 @@ public class ActivityChartPanel extends JPanel {
 
         add(createHeading(), BorderLayout.NORTH);
 
-        // Chart container
+        // Khung chứa biểu đồ
         JPanel chartContainer = new JPanel(
             new BorderLayout(0, 20)
         );
@@ -72,7 +72,7 @@ public class ActivityChartPanel extends JPanel {
             BorderLayout.NORTH
         );
 
-        // Draw chart
+        // Vẽ biểu đồ
         chartContainer.add(
             new BarChart(),
             BorderLayout.CENTER
@@ -125,7 +125,7 @@ public class ActivityChartPanel extends JPanel {
         return panel;
     }
 
-    // Custom bar chart
+    // Biểu đồ cột tự vẽ
     private class BarChart extends JPanel {
 
         public BarChart() {
@@ -160,7 +160,7 @@ public class ActivityChartPanel extends JPanel {
             int chartWidth = width - left - right;
             int chartHeight = height - top - bottom;
 
-            // Draw Y-axis labels and grid lines
+            // Vẽ nhãn trục Y và các đường lưới
             g2.setFont(
                 new Font("Arial", Font.PLAIN, 12)
             );
@@ -190,7 +190,7 @@ public class ActivityChartPanel extends JPanel {
                 );
             }
 
-            // Draw bars
+            // Vẽ các cột biểu đồ
             int barWidth = chartWidth / 18;
             int spacing = chartWidth / 12;
 
@@ -204,7 +204,7 @@ public class ActivityChartPanel extends JPanel {
 
                 int y = top + chartHeight - barHeight;
 
-                // Bar
+                // Cột biểu đồ
                 g2.setColor(BAR_COLOR);
 
                 g2.fillRoundRect(
@@ -213,7 +213,7 @@ public class ActivityChartPanel extends JPanel {
                     8, 8
                 );
 
-                // Number above bar
+                // Giá trị hiển thị phía trên cột
                 g2.setColor(TEXT_COLOR);
 
                 String value = String.valueOf(
@@ -228,7 +228,7 @@ public class ActivityChartPanel extends JPanel {
                     y - 8
                 );
 
-                // Month below bar
+                // Tên tháng hiển thị bên dưới cột
                 g2.setColor(Color.GRAY);
 
                 String month = months[i];
@@ -242,7 +242,7 @@ public class ActivityChartPanel extends JPanel {
                 );
             }
 
-            // Axis titles
+            // Tiêu đề các trục
             g2.setColor(TEXT_COLOR);
 
             g2.drawString(

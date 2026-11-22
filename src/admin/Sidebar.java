@@ -18,7 +18,7 @@ public class Sidebar extends JPanel {
         setBackground(SIDEBAR_COLOR);
         setPreferredSize(new Dimension(240, 0));
 
-        // Application name
+        // Tên ứng dụng
         JLabel logo = new JLabel("  CHATADMIN");
         logo.setFont(new Font("Arial", Font.BOLD, 22));
         logo.setForeground(TEXT_COLOR);
@@ -28,7 +28,7 @@ public class Sidebar extends JPanel {
 
         add(logo);
 
-        // Menu section
+        // Khu vực menu
         addMenuItem("Dashboard", "dashboard", navigation);
 
         addSectionTitle("USER MANAGEMENT");

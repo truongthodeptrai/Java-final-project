@@ -23,22 +23,22 @@ public class MainFrame extends JFrame {
 
         setLayout(new BorderLayout());
 
-        // Create sidebar
+        // Tạo thanh điều hướng bên
         Sidebar sidebar = new Sidebar(this::showPage);
 
         add(sidebar, BorderLayout.WEST);
 
-        // Create main content area
+        // Tạo khu vực nội dung chính
         JPanel mainArea = new JPanel(new BorderLayout());
 
         mainArea.setBackground(BACKGROUND_COLOR);
 
-        // Header
+        // Phần đầu trang
         JPanel header = createHeader();
 
         mainArea.add(header, BorderLayout.NORTH);
 
-        // Content pages
+        // Các trang nội dung
         cardLayout = new CardLayout();
 
         contentPanel = new JPanel(cardLayout);
@@ -50,7 +50,7 @@ public class MainFrame extends JFrame {
 
         add(mainArea, BorderLayout.CENTER);
 
-        // Default page
+        // Trang hiển thị mặc định
         cardLayout.show(contentPanel, "dashboard");
     }
 
@@ -89,7 +89,7 @@ public class MainFrame extends JFrame {
     
     private void addPages() {
 
-        // Dashboard screens
+        // Đăng ký các màn hình trong trang tổng quan
         contentPanel.add(
         new DashboardPanel(),
         "dashboard"

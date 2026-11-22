@@ -22,14 +22,14 @@ public class LoginHistoryPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Page heading
+        // Tiêu đề trang
         add(createHeading(), BorderLayout.NORTH);
 
-        // Login history table
+        // Bảng lịch sử đăng nhập
         add(createLoginTable(), BorderLayout.CENTER);
     }
 
-    // Create page heading
+    // Tạo phần tiêu đề trang
     private JPanel createHeading() {
 
         JPanel panel = new JPanel();
@@ -67,7 +67,7 @@ public class LoginHistoryPanel extends JPanel {
         return panel;
     }
 
-    // Create login history table
+    // Tạo bảng lịch sử đăng nhập
     private JPanel createLoginTable() {
 
         JPanel panel = new JPanel(
@@ -97,14 +97,14 @@ public class LoginHistoryPanel extends JPanel {
 
         panel.add(title, BorderLayout.NORTH);
 
-        // Table columns
+        // Các cột của bảng
         String[] columns = {
             "Login Time",
             "Username",
             "Full Name"
         };
 
-        // Sample login history
+        // Dữ liệu lịch sử đăng nhập mẫu
         Object[][] data = {
             {"21/11/2026 08:30", "john123", "John Smith"},
             {"21/11/2026 08:15", "mary456", "Mary Johnson"},

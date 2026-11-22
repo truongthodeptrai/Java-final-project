@@ -24,10 +24,10 @@ public class UserPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Page heading
+        // Tiêu đề trang
         add(createHeading(), BorderLayout.NORTH);
 
-        // Main content
+        // Nội dung chính
         JPanel mainContent = new JPanel(
             new BorderLayout(0, 20)
         );
@@ -47,7 +47,7 @@ public class UserPanel extends JPanel {
         add(mainContent, BorderLayout.CENTER);
     }
 
-    // Create page heading
+    // Tạo phần tiêu đề trang
     private JPanel createHeading() {
 
         JPanel panel = new JPanel();
@@ -85,7 +85,7 @@ public class UserPanel extends JPanel {
         return panel;
     }
 
-    // Create search and filter toolbar
+    // Tạo thanh công cụ tìm kiếm và lọc
     private JPanel createToolbar() {
 
         JPanel panel = new JPanel(
@@ -103,8 +103,8 @@ public class UserPanel extends JPanel {
             )
         );
 
-        // Search field
-        // Search field
+        // Ô tìm kiếm
+        // Ô tìm kiếm
         JTextField searchField = new JTextField(22);
 
         searchField.setFont(
@@ -115,7 +115,7 @@ public class UserPanel extends JPanel {
             "Search by username or full name"
         );
 
-        // Placeholder text
+        // Văn bản gợi ý trong ô nhập liệu
         searchField.setText("Search...");
         searchField.setForeground(Color.GRAY);
 
@@ -154,7 +154,7 @@ public class UserPanel extends JPanel {
             "Search by username or full name"
         );
 
-        // Status filter
+        // Bộ lọc trạng thái
         String[] statuses = {
             "All Status",
             "Active",
@@ -168,7 +168,7 @@ public class UserPanel extends JPanel {
             new Font("Arial", Font.PLAIN, 13)
         );
 
-        // Add user button
+        // Nút thêm người dùng
         JButton addButton = new JButton("+ Add User");
 
         addButton.setFont(
@@ -192,7 +192,7 @@ public class UserPanel extends JPanel {
         return panel;
     }
 
-    // Create user table
+    // Tạo bảng người dùng
     private JPanel createUserTable() {
 
         JPanel panel = new JPanel(
@@ -222,7 +222,7 @@ public class UserPanel extends JPanel {
 
         panel.add(title, BorderLayout.NORTH);
 
-        // Table columns
+        // Các cột của bảng
         String[] columns = {
             "Username",
             "Full Name",
@@ -232,7 +232,7 @@ public class UserPanel extends JPanel {
             "Status"
         };
 
-        // Sample user data
+        // Dữ liệu người dùng mẫu
         Object[][] data = {
             {"john123", "John Smith", "john@email.com",
                 "Male", "12/05/2002", "Active"},

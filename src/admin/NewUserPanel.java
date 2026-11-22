@@ -23,10 +23,10 @@ public class NewUserPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Page heading
+        // Tiêu đề trang
         add(createHeading(), BorderLayout.NORTH);
 
-        // Main content
+        // Nội dung chính
         JPanel mainContent = new JPanel(
             new BorderLayout(0, 20)
         );
@@ -46,7 +46,7 @@ public class NewUserPanel extends JPanel {
         add(mainContent, BorderLayout.CENTER);
     }
 
-    // Create page heading
+    // Tạo phần tiêu đề trang
     private JPanel createHeading() {
 
         JPanel panel = new JPanel();
@@ -84,7 +84,7 @@ public class NewUserPanel extends JPanel {
         return panel;
     }
 
-    // Create date filters, search and sorting toolbar
+    // Tạo thanh công cụ gồm bộ lọc ngày, tìm kiếm và sắp xếp
     private JPanel createToolbar() {
 
         JPanel panel = new JPanel(
@@ -102,7 +102,7 @@ public class NewUserPanel extends JPanel {
             )
         );
 
-        // Starting date
+        // Ngày bắt đầu
         JSpinner fromDate = new JSpinner(
             new SpinnerDateModel(
                 new Date(),
@@ -116,7 +116,7 @@ public class NewUserPanel extends JPanel {
             new JSpinner.DateEditor(fromDate, "dd/MM/yyyy")
         );
 
-        // Ending date
+        // Ngày kết thúc
         JSpinner toDate = new JSpinner(
             new SpinnerDateModel(
                 new Date(),
@@ -130,7 +130,7 @@ public class NewUserPanel extends JPanel {
             new JSpinner.DateEditor(toDate, "dd/MM/yyyy")
         );
 
-        // Search field
+        // Ô tìm kiếm
         JTextField searchField = new JTextField(15);
 
         searchField.setFont(
@@ -167,7 +167,7 @@ public class NewUserPanel extends JPanel {
             }
         );
 
-        // Sorting options
+        // Các tùy chọn sắp xếp
         String[] sortOptions = {
             "Name",
             "Registration Date"
@@ -180,7 +180,7 @@ public class NewUserPanel extends JPanel {
             new Font("Arial", Font.PLAIN, 13)
         );
 
-        // Add components
+        // Thêm các thành phần vào thanh công cụ
         panel.add(new JLabel("From:"));
         panel.add(fromDate);
 
@@ -195,7 +195,7 @@ public class NewUserPanel extends JPanel {
         return panel;
     }
 
-    // Create newly registered users table
+    // Tạo bảng người dùng mới đăng ký
     private JPanel createUserTable() {
 
         JPanel panel = new JPanel(
@@ -225,7 +225,7 @@ public class NewUserPanel extends JPanel {
 
         panel.add(title, BorderLayout.NORTH);
 
-        // Table columns
+        // Các cột của bảng
         String[] columns = {
             "Username",
             "Full Name",
@@ -233,7 +233,7 @@ public class NewUserPanel extends JPanel {
             "Registration Date"
         };
 
-        // Sample registration data
+        // Dữ liệu đăng ký mẫu
         Object[][] data = {
             {"john123", "John Smith", "john@email.com",
                 "21/11/2026"},

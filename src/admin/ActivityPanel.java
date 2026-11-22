@@ -23,10 +23,10 @@ public class ActivityPanel extends JPanel {
             BorderFactory.createEmptyBorder(30, 35, 30, 35)
         );
 
-        // Heading
+        // Tiêu đề
         add(createHeading(), BorderLayout.NORTH);
 
-        // Main content
+        // Nội dung chính
         JPanel content = new JPanel(new BorderLayout(0, 20));
         content.setBackground(BACKGROUND_COLOR);
 
@@ -73,7 +73,7 @@ public class ActivityPanel extends JPanel {
             BorderFactory.createEmptyBorder(10, 10, 10, 10)
         );
 
-        // Start date
+        // Ngày bắt đầu
         JLabel fromLabel = new JLabel("From:");
 
         JSpinner fromDate = new JSpinner(
@@ -85,7 +85,7 @@ public class ActivityPanel extends JPanel {
             new JSpinner.DateEditor(fromDate, "dd/MM/yyyy")
         );
 
-        // End date
+        // Ngày kết thúc
         JLabel toLabel = new JLabel("To:");
 
         JSpinner toDate = new JSpinner(
@@ -97,7 +97,7 @@ public class ActivityPanel extends JPanel {
             new JSpinner.DateEditor(toDate, "dd/MM/yyyy")
         );
 
-        // Search field
+        // Ô tìm kiếm
         JTextField searchField = new JTextField(15);
 
         searchField.setText("Search...");
@@ -127,14 +127,14 @@ public class ActivityPanel extends JPanel {
             }
         );
 
-        // Activity comparison
+        // Điều kiện so sánh số lượt hoạt động
         JComboBox<String> comparison = new JComboBox<>(
             new String[]{"=", "<", ">"}
         );
 
         JTextField activityCount = new JTextField(5);
 
-        // Sort option
+        // Tùy chọn sắp xếp
         JComboBox<String> sort = new JComboBox<>(
             new String[]{"Name", "Created Date"}
         );
